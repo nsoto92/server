@@ -11,12 +11,15 @@ const users = [
 
 const user = { name: "Norbert", age: 28, gender: "male", _id: uuidv4() }
 
+// Intercept
+userRouter.use(require('../middleware'))
+
 // Routes
 
 // Get Request for Interception
 userRouter.get("/", (req, res) => {
-    res.send(user)
+    const newObj = Object.assign(req.body, user)
+    res.send(newObj)
 })
-
 
 module.exports = userRouter

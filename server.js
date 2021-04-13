@@ -4,9 +4,6 @@ const app = express()
 // Middleware 
 app.use(express.json()) //Turn request body into req.body
 
-// Intercept
-app.use(require('./middleware'))
-
 //Routes
 app.use('/users', require('./routes/userRouter'))
 
